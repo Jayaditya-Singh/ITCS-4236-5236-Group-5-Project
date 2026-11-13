@@ -17,10 +17,12 @@
 **Tiles/** (drag into a Tile Palette)
 - `grass_0-2` walkable, `path` walkable road
 - `block_gravestone`, `block_pumpkin`, `block_fence` — unwalkable obstacle tiles
+- `block_tree_oak`, `block_tree_pine`, `block_tree_dead` — unwalkable tree obstacle tiles (same style as gravestone/pumpkin, grass baked in)
 - `block_fog_overlay` — transparent fog to place on a second Tilemap layer for tiles that become blocked at runtime
 
 **Buildings/**
 - `post_office.png`, `house_purple/teal/rose.png`
+- `tree_large.png` — 32×32 decorative tree (transparent background, place like a house; covers 2×2 tiles)
 - `*_fading.png` — semi-transparent version for houses appearing/vanishing
 
 **Items_UI/**
