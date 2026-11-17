@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class DeliveryManager : MonoBehaviour
@@ -6,14 +7,22 @@ public class DeliveryManager : MonoBehaviour
 
     public bool hasLetter { get; private set; }
 
-    [SerializeField] private GameObject targetHighlight;
+    [SerializeField] private GameObject[] targetHighlights;
 
+    private int currentDelivery = 0;
+
+    public int CurrentDelivery
+    {
+        get { return currentDelivery; }
+    }
     private void Awake()
     {
         Instance = this;
 
-        if (targetHighlight != null)
-            targetHighlight.SetActive(false);
+        foreach (GameObject highlight in targetHighlights)
+        {
+            highlight.SetActive(false);
+        }
 
 
     }
@@ -23,8 +32,7 @@ public class DeliveryManager : MonoBehaviour
         Debug.Log("ENTERED PickUpLetter");
 
         hasLetter = true;
-        if (targetHighlight != null)
-            targetHighlight.SetActive(true);
+        targetHighlights[currentDelivery].SetActive(true);
 
         Debug.Log("Picked up letter");
     }
@@ -34,8 +42,9 @@ public class DeliveryManager : MonoBehaviour
         Debug.Log("ENTERED DeliverLetter");
 
         hasLetter = false;
-        if (targetHighlight != null)
-            targetHighlight.SetActive(false);
+        targetHighlights[currentDelivery].SetActive(false);
+
+        currentDelivery++;
         Debug.Log("Delivered letter");
     }
 }

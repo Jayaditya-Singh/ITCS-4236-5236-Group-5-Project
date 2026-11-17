@@ -2,18 +2,23 @@ using UnityEngine;
 
 public class DeliveryHouse : MonoBehaviour
 {
+    [SerializeField] private int houseNumber;
+
     private bool playerNearby;
 
     private void Update()
     {
         if (playerNearby && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("HOUSE E PRESSED");
-
-            if (DeliveryManager.Instance.hasLetter)
+            if (DeliveryManager.Instance.hasLetter &&
+                DeliveryManager.Instance.CurrentDelivery == houseNumber)
             {
                 DeliveryManager.Instance.DeliverLetter();
-                Debug.Log("Letter delivered to delivery house.");
+                Debug.Log("Correct House.");
+            }
+            else
+            {
+                Debug.Log("Wrong House");
             }
         }
     }
