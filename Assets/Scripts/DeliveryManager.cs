@@ -11,6 +11,8 @@ public class DeliveryManager : MonoBehaviour
 
     private int currentDelivery = 0;
 
+    [SerializeField] private GameObject winText;
+
     public int CurrentDelivery
     {
         get { return currentDelivery; }
@@ -45,6 +47,15 @@ public class DeliveryManager : MonoBehaviour
         targetHighlights[currentDelivery].SetActive(false);
 
         currentDelivery++;
+        if (currentDelivery >= targetHighlights.Length)
+        {
+            Debug.Log("All deliveries completed!");
+
+            if (winText != null)
+            {
+                winText.SetActive(true);
+            }
+        }
         Debug.Log("Delivered letter");
     }
 }
