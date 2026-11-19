@@ -31,7 +31,7 @@ public class GridManager :MonoBehaviour
             for (int y = 0; y < gridSizeY; y++)
             {
                 Vector2 worldPoint = worldBottomLeft + Vector2.right * (x * nodeDiameter + nodeRadius) + Vector2.up * (y * nodeDiameter + nodeRadius);
-                bool walkable = true;
+                bool walkable = !Physics2D.OverlapCircle(worldPoint, nodeRadius, obstacleMask);
                 grid[x, y] = new Node(walkable, worldPoint, x, y);
             }
         }
