@@ -10,6 +10,8 @@ public class GridManager :MonoBehaviour
 
     float nodeDiameter;
     int gridSizeX, gridSizeY;
+
+    [SerializeField] private LayerMask obstacleMask;
     private void Awake()
     {
         nodeDiameter = nodeRadius * 2;
@@ -39,13 +41,18 @@ public class GridManager :MonoBehaviour
     {
         Gizmos.color = Color.white;
 
-        Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, gridWorldSize.y, 1));
+        Gizmos.DrawWireCube(
+            transform.position,
+            new Vector3(gridWorldSize.x, gridWorldSize.y, 1)
+        );
 
         if (grid != null)
         {
             foreach (Node node in grid)
             {
-                Gizmos.color = Color.white;
+                Gizmos.color = node.walkable ?
+                    Color.white :
+                    Color.red;
 
                 Gizmos.DrawWireCube(
                     node.worldPosition,

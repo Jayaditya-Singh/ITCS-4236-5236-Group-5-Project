@@ -10,13 +10,22 @@ public class PathVisualizer : MonoBehaviour
 
     public void ShowPath(Vector2 startPos, Vector2 targetPos)
     {
+        Debug.Log("ShowPath called");
+
         ClearPath();
 
         List<Node> path =
             pathfinding.FindPath(startPos, targetPos);
+        Debug.Log("Start: " + startPos);
+        Debug.Log("Target: " + targetPos);
 
         if (path == null)
+        {
+            Debug.Log("Path is null");
             return;
+        }
+
+        Debug.Log("Path Size: " + path.Count);
 
         foreach (Node node in path)
         {

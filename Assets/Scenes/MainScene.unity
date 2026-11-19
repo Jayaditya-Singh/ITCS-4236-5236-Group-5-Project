@@ -470,6 +470,52 @@ Transform:
   - {fileID: 353811013}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &138885089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 138885091}
+  - component: {fileID: 138885090}
+  m_Layer: 0
+  m_Name: PathVisualizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &138885090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138885089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd1306e679b9cd41ab143811195d509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PathVisualizer
+  pathfinding: {fileID: 781384004}
+  pathDotPrefab: {fileID: 5203191431467023696, guid: 02b246f661071614ca0f3d6708f89329, type: 3}
+--- !u!4 &138885091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138885089}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.58352, y: -0.2417, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &264306810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1288,12 @@ MonoBehaviour:
   - {fileID: 986293031}
   - {fileID: 582389559}
   winText: {fileID: 815349009}
+  pathVisualizer: {fileID: 138885090}
+  player: {fileID: 640227788}
+  houseTargets:
+  - {fileID: 109645092}
+  - {fileID: 1043361289}
+  - {fileID: 37928395}
 --- !u!4 &740994544
 Transform:
   m_ObjectHideFlags: 0
@@ -5247,6 +5299,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GridManager
   gridWorldSize: {x: 30, y: 20}
   nodeRadius: 0.5
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!4 &1074618012
 Transform:
   m_ObjectHideFlags: 0
@@ -5981,3 +6036,4 @@ SceneRoots:
   - {fileID: 4654297554610590028}
   - {fileID: 1074618012}
   - {fileID: 781384005}
+  - {fileID: 138885091}
