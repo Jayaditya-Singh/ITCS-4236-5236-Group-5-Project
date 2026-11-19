@@ -37,19 +37,16 @@ public class DeliveryManager : MonoBehaviour
 
     public void PickUpLetter()
     {
-        Debug.Log("ENTERED PickUpLetter");
 
         hasLetter = true;
         targetHighlights[currentDelivery].SetActive(true);
 
         pathVisualizer.ShowPath(player.position, houseTargets[currentDelivery].position);
 
-        Debug.Log("Picked up letter");
     }
 
     public void DeliverLetter()
     {
-        Debug.Log("ENTERED DeliverLetter");
 
         hasLetter = false;
         targetHighlights[currentDelivery].SetActive(false);
@@ -58,13 +55,11 @@ public class DeliveryManager : MonoBehaviour
         currentDelivery++;
         if (currentDelivery >= targetHighlights.Length)
         {
-            Debug.Log("All deliveries completed!");
 
             if (winText != null)
             {
                 winText.SetActive(true);
             }
         }
-        Debug.Log("Delivered letter");
     }
 }

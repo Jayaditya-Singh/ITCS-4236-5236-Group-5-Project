@@ -14,11 +14,9 @@ public class DeliveryHouse : MonoBehaviour
                 DeliveryManager.Instance.CurrentDelivery == houseNumber)
             {
                 DeliveryManager.Instance.DeliverLetter();
-                Debug.Log("Correct House.");
             }
             else
             {
-                Debug.Log("Wrong House");
             }
         }
     }
@@ -28,7 +26,6 @@ public class DeliveryHouse : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = true;
-            Debug.Log("Player is near the delivery house. Press 'E' to deliver the letter.");
         }
     }
 
@@ -37,7 +34,6 @@ public class DeliveryHouse : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = false;
-            Debug.Log("Player left the delivery house area.");
         }
     }
 }

@@ -10,8 +10,6 @@ public class Pathfinding : MonoBehaviour
         Node startNode = gridManager.NodeFromWorldPoint(startPos);
         Node targetNode = gridManager.NodeFromWorldPoint(targetPos);
 
-        Debug.Log("Start Node: " + startNode.gridX + "," + startNode.gridY);
-        Debug.Log("Target Node: " + targetNode.gridX + "," + targetNode.gridY);
 
         List<Node> openSet = new List<Node>();
         HashSet<Node> closedSet = new HashSet<Node>();
