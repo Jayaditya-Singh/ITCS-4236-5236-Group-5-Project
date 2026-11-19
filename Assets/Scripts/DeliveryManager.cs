@@ -13,6 +13,12 @@ public class DeliveryManager : MonoBehaviour
 
     [SerializeField] private GameObject winText;
 
+    [SerializeField] private PathVisualizer pathVisualizer;
+
+    [SerializeField] private Transform player;
+
+    [SerializeField] private Transform[] houseTargets;
+
     public int CurrentDelivery
     {
         get { return currentDelivery; }
@@ -36,6 +42,8 @@ public class DeliveryManager : MonoBehaviour
         hasLetter = true;
         targetHighlights[currentDelivery].SetActive(true);
 
+        pathVisualizer.ShowPath(player.position, houseTargets[currentDelivery].position);
+
         Debug.Log("Picked up letter");
     }
 
@@ -46,6 +54,7 @@ public class DeliveryManager : MonoBehaviour
         hasLetter = false;
         targetHighlights[currentDelivery].SetActive(false);
 
+        pathVisualizer.ClearPath();
         currentDelivery++;
         if (currentDelivery >= targetHighlights.Length)
         {
