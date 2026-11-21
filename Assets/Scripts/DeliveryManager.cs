@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeliveryManager : MonoBehaviour
 {
@@ -58,7 +59,7 @@ public class DeliveryManager : MonoBehaviour
 
             if (winText != null)
             {
-                winText.SetActive(true);
+                SceneManager.LoadScene("WinCredits");
             }
         }
     }
