@@ -11,12 +11,9 @@ public class DeliveryHouse : MonoBehaviour
         if (playerNearby && Input.GetKeyDown(KeyCode.E))
         {
             if (DeliveryManager.Instance.hasLetter &&
-                DeliveryManager.Instance.CurrentDelivery == houseNumber)
+                DeliveryManager.Instance.IsCorrectHouse(houseNumber))
             {
                 DeliveryManager.Instance.DeliverLetter();
-            }
-            else
-            {
             }
         }
     }
