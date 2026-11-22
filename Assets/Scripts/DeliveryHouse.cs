@@ -4,6 +4,8 @@ public class DeliveryHouse : MonoBehaviour
 {
     [SerializeField] private int houseNumber;
 
+    public AudioClip DeliveringLetterSound; //Sound effect for delivering a letter
+
     private bool playerNearby;
 
     private void Update()

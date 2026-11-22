@@ -6,6 +6,8 @@ public class DeliveryManager : MonoBehaviour
 {
     public static DeliveryManager Instance;
 
+    public AudioClip DeliveringLetterSound; //Sound effect for delivering a letter
+
     public bool hasLetter { get; private set; }
 
     [SerializeField] private GameObject[] targetHighlights;
@@ -16,6 +18,7 @@ public class DeliveryManager : MonoBehaviour
     [SerializeField] private Transform[] houseTargets;
 
     private int currentDelivery = 0;
+    private bool finished = false;
 
     private List<int> deliveryOrder = new List<int>();
     private int deliveriesThisGame;
@@ -59,6 +62,8 @@ public class DeliveryManager : MonoBehaviour
 
     public void PickUpLetter()
     {
+        if (finished) return;
+
         hasLetter = true;
 
         int targetIndex = deliveryOrder[currentDelivery];
@@ -75,6 +80,11 @@ public class DeliveryManager : MonoBehaviour
     {
         hasLetter = false;
 
+        if (DeliveringLetterSound != null)
+        {
+            AudioSource.PlayClipAtPoint(DeliveringLetterSound, Camera.main.transform.position);
+        }
+
         int targetIndex = deliveryOrder[currentDelivery];
 
         targetHighlights[targetIndex].SetActive(false);
@@ -85,8 +95,14 @@ public class DeliveryManager : MonoBehaviour
 
         if (currentDelivery >= deliveriesThisGame)
         {
-            SceneManager.LoadScene("WinCredits");
+            finished = true;
+            Invoke(nameof(LoadWinScene), 1f); // wait 1 second so the sound can play
         }
+    }
+
+    private void LoadWinScene()
+    {
+        SceneManager.LoadScene("WinCredits");
     }
 
     public bool IsCorrectHouse(int houseNumber)

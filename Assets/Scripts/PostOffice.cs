@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PostOffice : MonoBehaviour
 {
+    public AudioClip RecivingLetterSound; //Sound effect for receiving a letter
+
     private bool playerNearby;
 
     private void Update()
@@ -12,13 +14,15 @@ public class PostOffice : MonoBehaviour
             if (!DeliveryManager.Instance.hasLetter)
             {
                 DeliveryManager.Instance.PickUpLetter();
+
+                AudioSource.PlayClipAtPoint(RecivingLetterSound, Camera.main.transform.position);
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+
         if (other.CompareTag("Player"))
         {
             playerNearby = true;

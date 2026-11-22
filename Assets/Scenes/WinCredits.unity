@@ -1056,7 +1056,7 @@ MonoBehaviour:
   winScreen: {fileID: 1483194161}
   creditsScreen: {fileID: 580222086}
   creditsText: {fileID: 243617935}
-  scrollSpeed: 35
+  scrollSpeed: 60
   fadeDuration: 2
   endPause: 0.5
   flashOverlay: {fileID: 2031152539}
