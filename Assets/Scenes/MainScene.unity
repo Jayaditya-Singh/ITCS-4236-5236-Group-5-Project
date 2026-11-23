@@ -1830,11 +1830,11 @@ MonoBehaviour:
   moveSpeed: 5
   framesPerSecond: 6
   down:
-  - {fileID: 993133264, guid: d583c547ecd9d514f9ae93f9048d67e1, type: 3}
-  - {fileID: -1795979807, guid: d583c547ecd9d514f9ae93f9048d67e1, type: 3}
-  up:
   - {fileID: -1955979588, guid: d583c547ecd9d514f9ae93f9048d67e1, type: 3}
   - {fileID: -1400380342, guid: d583c547ecd9d514f9ae93f9048d67e1, type: 3}
+  up:
+  - {fileID: 993133264, guid: d583c547ecd9d514f9ae93f9048d67e1, type: 3}
+  - {fileID: -1795979807, guid: d583c547ecd9d514f9ae93f9048d67e1, type: 3}
   left:
   - {fileID: 1818210504, guid: d583c547ecd9d514f9ae93f9048d67e1, type: 3}
   - {fileID: -2145219744, guid: d583c547ecd9d514f9ae93f9048d67e1, type: 3}
